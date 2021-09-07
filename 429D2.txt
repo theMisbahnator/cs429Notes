@@ -1,0 +1,75 @@
+429D2 --- Notes over C
+
+LinkedList Demo
+.h files
+- libraries, you need to import that
+- using your own libraries is like #include "list.h" 
+- .h stands for header
+- .h is defining methods and variables you can use when imported to ur c file
+- allows the access of anythinf in list.h when imported
+- have to deifne things before you use them (like python)
+
+union
+- looks like a struct
+- makes all the varibale take the same space in memory and dictate which one u want to use at a given time
+- access the same data as different types
+- the space the union takes up is dictated by its largest variable within the struct
+
+drawn example
+- typdef union {int i, char c, bool b, char *s;} value_t, v_t, foo etc...; - > defines the variable, it can have multiple names
+- declared value_t v;
+- size is 8 since the largest variable within is 8
+- v->s = hello, v would be pointing to another pointer to the string
+	- Strin ends with a null terminator
+- v->i = 100, gets rid of the original data, v now contains 100.
+- printing out v->s will use the v->i as a memry adress which would be bad 
+
+
+enums
+- constant names with some values
+- struct node is isntatiated without typdef and node_t, you will need to call it struct NODE
+- by convention end you own types by _t
+
+list.c
+- writing a function that returns a new list
+- create space for list
+	- list_t *list = malloc(sizeOf(list_t));
+- declare the headernode and size
+	- list->size = 0;
+	- list->header = malloc(sizeOf(node_t));
+- updated fields for malloc
+	- list->header->prev = list->header;
+	- list->header->next = list->header;
+	- list->header->val.ival = 0;
+		- arrow on pointers, dot on struct and union
+	- list->header->type = VAL_NONE;
+- You have to check if if the space designated by malloc is null, that means there is no space available
+
+
+Strings 
+- switch statements(t) used for push operation, used to compare the value of t to a data type
+- if pushing a string
+	- make a copy of the string
+	- make two parameters, one set to the parameter string, the other you allocate memory as the size of the parameter
+	- sizeOf is NOT how we get the size of a string, use build in library strlen(parameter_string) + 1
+- dont count the null terminating character as apart of the size, you need to add + 1 add the end of strlen for terminating char
+- use a for loop(int i = 0; i < strlen(s); i++) {copy[i] = s[i]}
+	- atfter for loop add etminating character manually copy[strlen(s)] = '/0'
+	- u can use a string library, strcopy(copy, s); need to make sure the right size is malloc, otherwise it will through an error
+
+GDB
+- command line tool used to debug c programs
+- compiled with flag -g
+- google gdb cheat sheet for help
+- breakpoint is important
+	- want execution to stop somehwere in the program
+	- sus of line 200, put breakpoint 200
+- try to use this instead of vscode
+
+using GDB
+- gcc c file runs the c file -o gives it out put add LL (output for preogram) -g
+	- ex. gcc linkedList.c -o LL -g
+
+LAB
+-  
+

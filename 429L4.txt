@@ -1,0 +1,49 @@
+BR09 --- Lecture 4 --- 
+
+TODO - C assignment due in three weeks
+
+Content of the quiz
+- contents of the previous weeks 
+- 15 mins, open note and stuff
+
+Representing integers
+
+Buildng blocks
+- Binary digit
+	- bit is an entity haveing two discrete states.
+- cartesian products of sets makes more sets, since a bit is a set
+	- taking cartesion product of bit with itself to create bit vectors
+	- byte = Bit X Bit X Bit X Bit X Bit X Bit X Bit X Bit = bit^8
+	- usually have the same type when creating the product
+	- since the bits are the same (homogenous) we will write them with [] rather then ()
+- bit factor - string os symbols of 0's and 1's like [0, 1, 1, 0].
+- n bit positions -> creates 2^n outcomes for the orientations of 0's and 1's
+
+Building blocks 2
+- Relevent domains for representing integers
+	- subset of natural numbers
+	- always chosing a contigous array of integers, always including 0
+	- OCTAL -> {1,2,3,4,5,6,7} base 8
+	- Decimal {0,1,2,3,4,5,6,7,8,9} base 10
+	- Hexadecimal {1,2,3,4,5,6,7,8,9,a,b,c,d,e,f} base 16
+	- mappings from reresentation to these carious sets are called codes/codebook
+
+Codes/codebook
+- morsecode is an exaple with a translating dictionary from dots and presses to english alphabet
+- phonetic alphabet
+
+specifying code
+- by enumeration, specifying the code
+- compact formula is optimal 
+- the standard representaiton is binary, hex decimal,
+- given a value, we can get its representation and vicer versa
+
+Well why is that the standard mapping?
+Radix-B positional notation
+- need a representational and value space
+- (a3,a2,a1,a0 ' a-1,a02,a-3)b -> summation starting from -infinity to positive infinity (ai * b^i)
+	- the b signifies the base
+	- the coma in the middle is known as the radix point
+	- ai is an index, a^i is an argument
+- as u go from right to left, the significance increases
+- no fractional part (past the radix point) until we get to floating point numbers

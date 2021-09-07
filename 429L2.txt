@@ -1,0 +1,29 @@
+cs 429 --- lecture 2 --- hopefully about c.
+
+Term Paper:
+- 6 papers + 1 podcast to help
+- Come up of a definition of what makes a system and what doesnt make a system.
+- Due on October 12, checkpoint (first draft) on september 17 (<= 1000 content words)
+
+Value vs Representation
+- Multiple ways to represent a value
+- Different contexts = different representations
+- representations can have multiple values, ex. bengali 4 is an 8
+- Data types can add the context to interpret a representation
+	- ex. 11001001 can be 201 as binary or some String from star trek
+
+Summary
+- We always work with the concrete representation
+- Representation dictates alorithms that operate on that data type
+- the type system of programming language provides the rules used to interprets a vaiable
+
+What Makes a Bit
+- Bit = binary (two) + digit (finger/toe)
+- Entity with two distinct states: 1 (line) and 0 (circle)
+- bistable device
+	- light bulb
+	- sound: short tap vs long tap, morse code
+	- braille: raised dot vs smooth region of paper
+	- punch card: presence of hole vs absence of hole
+
+

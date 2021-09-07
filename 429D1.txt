@@ -1,0 +1,58 @@
+Discussion Section 1 --- Linux Bootcamp
+
+OV
+- show up for quiz, 15 mins beggining of class
+- over lecture content
+
+Terminals
+- Linux/MacOS - launch native terminal
+
+Windows
+- WSL, current ugs with vpn connection, use other
+- VS Code (goated)
+- tools: Puttyl, MobaxtTerm, Git, Bash
+- Set up SSH key, dont have to be on VPN to connect saving time
+
+SSH setup
+- look up UT guides on setting up SSH
+- characters are invisible when typing password
+
+Linux Navigation
+- install remote develeopment extention on VS code
+	- click the connect to host thing
+	- add new SSH host, type "ssh name@csmachine.cs.utexas.edu
+	- https://files.fosswire.com/2007/08/fwunixref.pdf
+
+Text Editors
+- Vim, Emacs, Nano
+
+Terminl stuff
+- ls -a pulls up the permission bits at the front like drwx 
+- if it has the x at the end, you can cd to it
+- ~ means home directory, cd ~
+
+Git
+- version control
+- keep assignment repo private
+- use utemail to sign up for virtual server credits to host a website
+
+Introduction to C
+- no objects in c
+- represention of bytes stay the same when casting, the container size just changes
+- when casting from a long to a int, since there is a 32 bit size difference, data can be cut off and lost
+- u can not automatically free up space like java, use free(x); to manage memory 
+
+Pointers
+- * means pointer, star is apart of the syntaz not the name
+- malloc means the allocation of memory 
+- creating an array of size 5
+	- int *arr = malloc(sizeof(int) * 5);
+	- int arr[5];
+- &variable gets the reference of a variable
+	- thats allows the modification of the variable by changing its memory
+	- you need to dereference the pointer by doing * again.
+- struct is like an boject but contains data type and no methods
+- pointers are always 8 bytes
+
+
+

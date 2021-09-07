@@ -1,0 +1,58 @@
+cs429 --- Lecture 3 --- 
+
+MOSFET
+- Metal oxide Semiconductor field effect transistor 
+- some chemical shit makes silicon combined with carbon which acts as an insulator
+- doped is a term which is dope
+- transistor with three terminals
+- need voltage threshold to see current
+- as u increase voltage the current increases the concaves
+- cuttof region (no current) vs saturation region (a lot of current) = binary system
+- storage units anc compute use this
+
+Magnetic Media (dipoles)
+- used in hhd
+- magnetizes a thing fild of ferromagnetic material on two sides of a disk
+
+Summary
+- bistable devises can emulate a bit
+- the two states 0, and 1 is an engineering decision to dictated the thhreshold for transition
+- engineering desicion - trade off between cost, benefit, and risk when taking a course of action
+- maybe in cs, its the desicion between time vs storage.
+
+Learning C
+systems programming
+- not about computational stuff, rather geared towards creating illusions behind the scenes
+	- compiler, os, etc...
+- can't ignore error handling
+	- layer crud around things like index out of bounds and memory leaks
+- given code, and develop skills to understand other code
+
+C language
+- C created on ana assembly level, create a portable OS
+- they wrote the languages assuming the developer would know what they are doing
+- need to understand memory storage in c, ex. variable instantiation
+
+Memory
+- nothing more than a giant array of bytes (groups of 8 bits) 1B = 8b
+-  char x = 'x'; what are the properties: name, size, value
+	- its a char type
+	- it takes up one byte
+	- you can store it anywhere in the giant array
+	- x identifier is binded to the location within memory (memory adress)
+	- there is an 8 bit pattern dictated by whatever the represenation of 'x' is (usually ascii)
+- int y = 42;
+	- its an primitive integer data type
+	- binary representation
+	- for sake, its 32 bits (4 bytes)
+- y = 2 * y; location vs value, L-Value vs R-Value
+	- the calling of y on the right is asking for its value
+	- the left hand side y, overwrite the value of y at its location from the value derived from the right
+
+Pointers
+- connects value to memory adress
+- int *z = &y;
+	- &y = address of y
+	- *z = pointer to int, what z points to is an int
+- takes the memory adress of y and brings it to the value space side, signifiying a point to y
+- a variable whose value can be used as an adress

@@ -1,0 +1,46 @@
+cs429 --- Lecture 5 --- 
+
+Converstion between bases
+- value 31 in decimal is 3 1
+- two representation in b1 and b2 are equal if they evaluate to the same value
+- how to get on base to another?
+	- 429 given in base 10
+	- to get to base 16, divide by 16 using long devision
+	- take the remainders from the bottom and concatenate them until the top
+	- general rule is to turn it into base 10, then into desired base
+
+Data sizes
+- every machine has a certain size 'w' for the word size of the machine
+	- we dont have an infinite number of digits 
+	- w is ths the # of bits you get to represent a memory adress on a machine (hold a pointer)
+	- 64 bit machine means w is 64
+	- x64 is from 0 to 2^64 - 1 as the memory adress limit
+	- RECAP -- array of memory is 2^w byte sized cells
+Byte ordering
+- only applies if the varaible ocupies more than one byte
+- does not apply to chars since its only one byte 
+- ints for example are 4 bytes
+- suppose we have int x; 
+	- in the c program with sizeof(x) == 4 and &x = 0x1000
+	- since memeroy is an array of bits, 32 bits of x are stored in 4 consecutive cells
+		- 0x1000, 0x1001, 0x1002, 0x1003
+	- different ordering produce different significant orderings (ull need to rewatch the lectire for this)
+	- if the least sigificant byte is in the memory cell with the lowest numbered memory address, the machine is little endian
+	- if x3 starts at 0x1000, then its big endian
+Boolean algebra
+- utilizing bit as 1, 0 with true and false, using the operations AND, OR, NOT as learned in 311.
+- in C -> and = & or = |, NOT =  ~ 
+	- these are different from the logical operators
+	- being changed bit by bit when comparing two bit values
+- 0 was false and enything else was true, back when true wasn't in the C language
+- XOR, exclusive or, bounded to the ^
+
+Shifts
+- given a bit size of some variable, the bits can be shifted from the left and two the right by a number less than the size
+- the bits that fall out the end is lost
+- they will be some gaps on the other side that we have to fill up
+	- shifting left >>, fill vacant positions with 0
+	- shifting right, fill vacant wither logically >>> or arithmeticly >>
+		- fill in with 0 if logically
+		- 
+  
