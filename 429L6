@@ -1,0 +1,41 @@
+cs429 --- Lecture 6 --- Representing integers
+
+- given a bit vector, we can get a mapping
+- x vector = [xw - 1, x 0]
+- the smallest value is using all 0's
+- the largest number is 2^(w-1)
+
+How to represnt negative numbers
+- we can shift from [0-15], midway from [-8, 7], onto, and one to one mapping
+- sign/magnitude representation - have the last bit store where the bit vector is positive or negative
+    - two representations for 0.
+    - most sigificant bit has a negative weight
+- niether of these are positional representation
+- c does not mandate 2's complement, java does
+
+python program
+- all 1's  = -1
+- all 0's = 0
+- the circles build off of each other
+
+Conversion signed/unsigned
+- signed -> bit representation -> unsigned, vice versa
+- 1101 signed is 3, unsigned is 13, add them up = 16, which is 2^4!
+
+Range Expansion
+- u gotta a w bit vector, but interpret as a w + k bit vector,
+    - putting into a bigger range, the value shouldn't change
+- unsigned case:
+    - 0 out higher bit values, 
+- signed
+    - expansion: take most significant bit and add k-copies of that into more significant positions
+    - re-interp -> notation u need to look back on
+
+Range Truncation
+- we have w bits, but want k bits where k is 0 < k < w.
+- unsigned:
+    - reinterp - take original number, if less than 2^k, must be represnable in k bits, 
+        - make it wrap around using mod 2^k.
+- signed
+    - reinterp - bring longer bit string to a sign value, then mod 2^k on that signed value,
+    - then rbing it to an unsigned value from 2^k, then convert it to sign
