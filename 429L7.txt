@@ -1,0 +1,44 @@
+cs429 --- Lecture 7 --- operating on integers
+
+addition in the values domain.
+
+unsigned w bits
+- 2 numbers within 0 and 2^w-1, x and y 
+- highes tnumber to be added is 2^w-2
+- 2^w-2 requires w+1 bits to be represented.
+- fixed with becuase then it becomes infinitly regressive and we have a cap on how many bits to used
+- need to define a different operator and will do something reasonable during overflow
+
+define of +u/w
+- do normal plus, take remainder from mod 2^w
+- if the sum is less than x and y, and it cant wrap around twice
+- value based overflow if x < s or y < s
+
+properties
+- the operator is communitive and associative, order of addition doesn't matter
+- the element 0is unique identity, x + 0 = x.
+- every element has a unique additive inverse, x + -x = 0.
+- additive indentiy is 0, the additive iverse is the number added to x to get 0.
+
+Integer subtraction
+unsigned
+- -x = x if x = 0 and 2^w - x
+- x - (binary minuz) y = x + - (unary minus) y
+
+signed
+- since its not 0-15 but -8 to 7.
+- same problem as bfore, need one more bit
+- +t/w
+- wrap around point at bottom, between -8 and 7.
+- two wrap around cases, going too positive and wrap around negaive, positive overflow
+- the opposite of that is negative oferflow, when you go to negative
+- two forms of overflow vs one with unsigned
+- if positive overflow s^w-1 <= s, wrap around = s - 2^w
+- if negative overflow s < -2^w-1, then wrap around = s + s^w
+
+value based oveflow detection,
+- if x and y have opposite signs, there cant be an overflow
+- positive overflow can only happen is x and y are positive
+- negative overflow can only happen if x and y are negative
+- if x is the lowest value like -8 if w = -8, its it own adiditve inverse
+- otherwise its just -x. 
