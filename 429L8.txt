@@ -1,0 +1,39 @@
+429 lecture 8 - operating on integers
+
+- ripple care algo in base 2
+- this is a leetcode problem, when your each to, put down a 0 and carry the 1
+
+101 + 110 = 1011
+
+- full adder = three input, two output circuit.
+
+w-bit ripple carry adder
+- you have a bit vector and b bit vector, and you get
+- the sum bit vector and the over bit v
+- V = c w-1, for unsigned, and v = c w-1 xOR C w-2
+- representation based bit addition
+- in both cases, prime the pump, having the least sig bit having 0.
+
+subtraction
+- just addtion using RCAw
+- adding negative b to a
+- a - b -> a + -b
+- -b -> ~b + 1
+- the one can be used at c-1, the lest sig bit
+
+Multiplication
+- repeated addition
+
+unsigned Multiplication
+- 2w bits to represent
+- regular multipl (mod 2^w)
+
+signed
+- twos complement, shift of range
+- up to 2w bits
+
+multi by constants
+- for 0<= k < w, 
+    - multiply 2 * k = x << k
+    - shifts and add 
+    - x * 14 = x*8 + x*4 + x * 2 == (x << 3) + (x << 2) + (x << 1) == (x << 4) - (x << 1)
