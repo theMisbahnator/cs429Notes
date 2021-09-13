@@ -1,0 +1,38 @@
+429L9 --- lecture operting on integers
+
+6 tools for bit hacking
+
+guidlines;
+- integer rep are twos cpomplement,
+- right shifts of signed values are arithmetic
+- bata type contains 32 bits
+- see all bit-level and logical operations
+- CANT using conditionals, loops, switches, macros, div, mod, .... ONLY representations
+
+1) bit parallel operations
+- use & | and ~ along with discrite math from things like basic equivielcies etc...
+- ex: x & y
+    - x & y using only ~ and |
+    - ~(!x | ~y)
+- swapping values of x and y without using a temporary
+    - x ^= y = x ^= y;
+    - is equal too:
+    - x = x ^ y;
+    - y = y ^ x;
+    - x = x ^ y; 
+
+2) masking
+- boolean identities -> x & 1 = x, x | 0 = x, x | 1 = 1;
+- example: extract the least sig byte of x
+    - return x & 0xFFU
+- add corresponding bytes of x and y
+    - s = (bro copy this from the slides)
+
+3) shifting
+- shifting bytes to bring certian bits into desired positions
+- examples: extract MSB of x
+    - for 32 bits, shift 3 bytes to the right, then do the same operation to extract
+        the least significant bit
+    - just shift enough to make the MSB be in the spot of the least sig Bit positional
+
+

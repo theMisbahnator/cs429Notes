@@ -1,0 +1,7 @@
+discussion section 3
+
+c things
+- include mathings available from those files accessible in this files
+
+freeing memory
+- 
