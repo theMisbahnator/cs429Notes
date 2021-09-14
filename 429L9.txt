@@ -34,5 +34,31 @@ guidlines;
     - for 32 bits, shift 3 bytes to the right, then do the same operation to extract
         the least significant bit
     - just shift enough to make the MSB be in the spot of the least sig Bit positional
+    - x >> ((sizeof(int) - 1) << 3) & 0xFFU
+    - example: wrap around vals when shifting to fill vacant positions
+        - well i zoned out
+4) recursive doubling
+- parallel sum/reduction/scan
+- breaks up work intp peices in parallel
+- continues thier result using associtive operator
+- reduce time complexity from o(n) to o(lgN)
+- n is number of bits like w
+- example: take a word and count the number of ones in it 
+    - merge sort type seperation
+    - take the sum of neighboring positions and accumulate the result to the top 
+    - use bit wise parallel to use concurrency
+    - u gotta watch the recoding for this as well
+    - see patternf in 1, 2, 4, 8, logarithmic number of steps
 
+5) structured permutations
+- overleaving where no card is in valid position
+- moving the bits in a structured manner 
+- bit reversal
+    - unsigned int x
+- outer perfect shuffle, inner perfect shuffle
+
+6) lookup table
+- precompute values to prevent the recomputation 
+- still need to control the size of the lookup table
+- tectual subsitution, get a value of n, write out sub string
 
