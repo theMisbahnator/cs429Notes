@@ -5,3 +5,37 @@ Lecture 10, Floating Point Data
 - we have 11/2 -> 5.5 -> (101.1)base 2, terminates
 - we have 1/10 -> (.1) -> (1.001100110011...)2 only terminates in one base
 - we have 1/3 -> .33333... -> (.01010101...) base 2, non terminating
+
+how could we represnt?
+- pair of numbers -> 11/2 is (11,2)
+    - defined a data type or class with two variables
+- cannot be generalized to irrational functions, cant be represented as two numbers
+- therfore doesnt meet design goals
+
+Choice 1: fixed point 
+- sign, stuff before a point, and stuff after the point
+- then in a k = 2 (binary system), a = 15, b = 16
+- -11/2 would be 1;000 0000 0000 0101; 1000 000 000 0000
+    - or 0x80058000
+- 1/10 would be 0; 000 0000 0000 0000; 0001 1001 1001 1001 
+    - or 0x000019999
+- not space efficient, range is 2^(-16) <= x <= 2^(15) - numbers after the decimal;
+
+Choice 2 : Floating point
+- using the normalized scientific notation
+- x as some number s * 10^E 
+    s cannot be less then 0, but less than 10.
+    s is called the significant or mantissa, and E is the exponent
+- 11/2 -> +5.5 * 10 ^ 0
+- going from decimal to binary, represent x as +/-S*2^E where 1 =< s < 2, bits after te decimal are finite
+
+if  E = 0, the range is 1 <= x < 9.99
+if E = 1, the range is 10 <= x < 99.9
+if E = 2, the range is 100 <= x < 999
+- take the same number steps from 1 to 9.99 as 10 to 99.9
+- just taking larger steps, smaller number means finer granularity
+- can normalize a 0, since the first number has to be a 1
+
+the smallest postive number greater than 1 has a rep of p-1/(1.0.....1) base 2
+value is 1 + 2^-(p-1)
+for arbitray number its ulp * epsilon
