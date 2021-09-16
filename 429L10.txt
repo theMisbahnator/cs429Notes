@@ -39,3 +39,56 @@ if E = 2, the range is 100 <= x < 999
 the smallest postive number greater than 1 has a rep of p-1/(1.0.....1) base 2
 value is 1 + 2^-(p-1)
 for arbitray number its ulp * epsilon
+
+Toy number system
+- number system with 3 bits, 1 in significant, 2 after the binary point
+- support 3 values, 0, +1, -1
+Question? - write down all the values that can be represented, what are those points
+- ulp: 1.00, 1.01, 1.10, 1.11, all multiplied by 2^E
+- Higher ulp = larger step size
+- Need positive and negative values of E to represent big and small numbers
+
+Rep of E 
+- use signed (twos complement)
+- q bits to gold the rep ebits(E) of E
+- add half the range - 1, because he can 
+- is not using 1111 and 0000 as rep
+- limits to only 14 values of e
+- rotated to have smallest bit on the 1's place, and the highest bit in the 14th bit
+- then treat is at an unsigned bit
+- define as ebits(E) = (E + 2^(q-1) - 1)
+
+Why are we using this trick?
+- we will find out later
+
+Complete rep
+- [sign][Exponenet eBits(E)][Significant(p - 1 bits)]
+- sign -> 0 = positive, 1 = negative
+- 1 + q + (p - 1) = p + q bits
+- we know b0 is always 1, so its a hidden bit, we don need to store it
+- minimim rep exponent, Emin = ebitsq - 1 q/(0..01)
+- min positve normalized number = nmin = 1 x 2^(Emin)
+- the max rep exponent i Emax = ebitsq-1 (q/1..10)
+- maximum floating point number
+- (2-2^-(p-1)) X 2^emax which is basecall 2^emax
+
+IEEE 74/854 single precision formate
+- float -> single precision
+    - 8 bits of exponenets, 24 bits of precision, 23 bits stored, makes up 32 bits
+    - bias ammount is 2^7
+    - emin = -126, emax = 12
+- double -> wider format double precision
+    - 64 bits , uses 53 bits for precision, 11 bits of exponenets
+    - finer steps sine there are more bits
+    - ebits is 2^10 - 1
+    Emin = -1022, emax = 1023
+
+What about my boi Zero?
+- using the exluded values from above
+- there will be a double Zero, plus and minus Zero
+- subnormal, used to be called it denormal -> gap around 0
+- doverge from the halving pattern, make it linear, 
+- add special cases past emin
+- if the patterns is all zero, hidden bit is 0.
+- the patter is 0 0^8 0^22 1 represent the subnormal 2^-127
+- Ok im kinda confused on subnormals, look in textbook
