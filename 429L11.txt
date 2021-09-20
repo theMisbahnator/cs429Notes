@@ -1,0 +1,40 @@
+lecture 11 --- floating point
+Pattern for subnormal
+- 0 (0^8) (1 0^22)2
+- largest sub normal - sig field will be all ones = 2^-126 - 2^-149
+- the smallest will have all 0's and a 1 at the end.
+
+infinites
+- pattern to prepresent infinit from +/- nMax
+- 0 1^p 0 ^p-1 positive infinity 
+- 1 1^p 0 ^p-1 negative infinity
+
+- What are the results of 1/0, 1/infinity, infinity + infinity
+    - well defined 
+- infinity - infinity, 0 * X, 0/0.
+    - ill defined or not defined
+- IEEE responses is that this chould return NaN 
+- use the unused representations
+- NaN are unordered, and cant compare to NaN for inequality
+
+Comparing floats
+- first look at sign bit, the next thing u check is the exponent, then the sign
+- Treat as an int and comparing it faster than using bit operations
+
+Point Data
+- muliplication of floats are easy, addition is a lot harder for different exponenets
+- do infinite resision arithmatic, the round
+- representation of finite subset is FF(p, q);
+- every real number is sanwiched between floating point numbers
+- if x !e of FF(p,q) one of these two things must be true
+    - x is outside the normailized range 2^130 and 2^-130
+    - x is within normalized range but requires more than p bits to represent the significand
+    - ex 1 + 2^(-25)
+go the next one and ping the next place by 4
+
+ - 4 rounded functions
+ - Round down -> x_
+ - rund up -> x+
+ - round to 0 -> based on -+ round up or down
+ - round to nearest, wherever x is closer to x_ or x+
+ 
