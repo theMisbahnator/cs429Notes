@@ -1,0 +1,35 @@
+Memory manaement 
+- used for mplementing malloc and free
+- a lot easier if u prioritize design effort
+
+- refers to algo for allocating and deallocating objects of varaible size in memory at execution time
+- distinct from global and function local variables
+    - these are managed at compile time
+
+Two main types
+- Explicit : appliclation is responsible for freeing allocated memory malloc and free
+- Implicit : still responsible for asking for memory, not responsible for releasing memory "garbage collector"
+    - when its safe to reclaim a block
+    - java, python, don't need to acticely keep track of what alive and whats dead 
+
+Block diagram level
+- starts at application that calls on allocator
+- the allocator is part of the language run time library
+- the interaction between application and allocator were the interface malloc and free
+- the free call just gets the pointer
+- at the back end, the allocator relies on certain OS services
+- interfaces include sbrk(size parameter), if you run out of space, as the big guy to give u more
+    - ask for a bunch at once, get back a void pointer
+    - os deals in bigger units, asking for 1byte gives u like 4
+- sbrk calls are expensive, minimize it
+- sbrk is now lightweight, buts still dont call it alot 
+
+Effciency of allocator
+- time efficency: how fast to u process requests
+- space efficency: maximize memory utlization, minimize overhead wasted space
+
+Bump allocator
+- just a pass through, does nothing, asks system for memory
+
+Alloxator centric world
+- 
