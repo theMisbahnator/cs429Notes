@@ -33,3 +33,53 @@ Bump allocator
 
 Alloxator centric world
 - 
+
+Skipped a lecture
+
+Dynamic memeory management - Highlights
+- char data and pointer data on exam 1
+
+state of a aheap
+- dont have a small useles free blocks, 
+- problem: 
+    - free list: list of free blocks, contiguous chunk of memery that the allocator has under it control
+    - ALLOCATED MEEMORY HAHS BEEN USED IN THE PAST, BUT NOT currently in the allocator's control, but the client
+- 4 concerns
+    - organization
+        - implic, explicit, and bucketed
+    - selection
+        - best fit, wordt fit, first fit, next fit
+    - splitting
+        - no split, split with threshold
+    - coalescing
+        - none, immediate, deffered
+        - two free blocks adjecent in the heap, do u leave them as two free blocks in the free list
+        - do colaizing right away, combining the free block
+        - another is to say to do it later on demand, coelece an entire heap
+ - lot of casting in this project of pointers, changing th epossible headers, 
+    - allows u to interpet whatever
+  
+best desing: selection
+- Best fit, scan the entire free list and pick the free block that minimizes internal fragmentaion, 
+    - looses the least amount of space 
+- worst fit, opposite of best fit, cjooses a block that maximizes internal fragmentaion
+- first fit, find the first free block large enough for the payload, clutters up early part of free list 
+    with small blocks
+    - you can choose the 3rd 5th or something random to spice it up
+-  next fit: like first fit but starts scanning from the last place satisfied, requires on extra pointer
+
+splitting
+- allocator ask for b bytes, the selection algo returns some number c greater than b
+- either split selected block into two, b and c - b.
+    - size b is what u hand back to the user, c - b goes to the user
+    - need to update the free list, where to put it? goes back to how ur sorting the list (ordered by memory adrees of arbitrarily)
+- or dont split
+    - just use all the c bytes
+    - hand the user something bigger, but causing large internal fragmentation
+
+Design coalescing
+- dont start on this but choose immediate or deffered, this is the last thing to implement
+- 4 cases
+    - no coalescing, there is a gap between to, look on slides for this
+    - preference, keep things in memory order, ur gonna start with no coalescing.
+    

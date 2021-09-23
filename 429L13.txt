@@ -1,0 +1,42 @@
+character data
+c's type system
+- object means variaable
+- the conteents of which can represent values
+ two types
+ basic types
+    - void type
+        - empty set of values
+    - arithmetic typyes
+        -  integer: char, short, int, long, enum  
+        -  floating: float, double, long double
+ derived types
+    - array types
+    - fnction types
+    - pointer types 
+    - structure types
+    - union types
+
+character type
+- are large enoguh to store any number of ececution character set
+= in all cases, its sizeof is always 1 byte, there no byte ordering issue
+- the language standard does not specify the coding, the moset common encoding is ascii
+
+ascii encoding
+- bit batters 0x00 and 0x7f to control character \n
+- 0x20 - 0x7E are printable characters
+- range is codespace, and the patters is called a code point
+
+operations on characters
+- are integral for data types
+- arithmetic operations are permitted
+- thuer results may or maynot be meaningful
+
+unicode
+- expansion of acii to inlcude emojis and more scripts
+- support is uneven
+
+utf-8 encoding
+- -bit unicode tranformation format
+- variable length character encoding capable of encoding all valid code points 
+- uses 1,2, 3, or 4 bytes
+- any ascii character has the same exact coding in utf-8

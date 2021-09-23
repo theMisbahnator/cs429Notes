@@ -37,4 +37,3 @@ go the next one and ping the next place by 4
  - rund up -> x+
  - round to 0 -> based on -+ round up or down
  - round to nearest, wherever x is closer to x_ or x+
- 
