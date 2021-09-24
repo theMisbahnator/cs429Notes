@@ -1,0 +1,103 @@
+Malloc notes hopefully
+- Memory allocation
+
+Explicit memory allocation
+- implementing an allocator
+- in java use a new key word, and kaava would free for u auto
+- c do it manually using free
+- getting memory from the os is easy, the hard part is orgnizing that memory in time and spae effecieincy 
+
+heap
+- where dynamic memry lives
+- calls to malloc and calloc lives in the heap
+- when the program starts ur heap is at 0
+- to grow heap use sbreak, system call and ask the user for x amount of space
+- no free equivalent for sbrak like malloc, 
+
+what do malloc and calloc do
+- malloc returns a void pointer- pointer with no type, 
+- its a pointers of that size specificied with no type dictated by user
+- if size==0, return NULL
+- on failure to allocate size also returns NULL
+
+free
+- returns nothing, fails silently
+- user doesnt need to specifiy the size of what they are freeing, we keep track of that
+- the pointer they give u must point to an allocated block of memory
+
+p1 = malloc(4)
+[1][1][1][1][][][][][][][][][][][][][][]
+
+p2 = malloc(5)
+[1][1][1][1][2][2][2][2][2][][][][][][][]
+
+p3 = malloc(2)
+[1][1][1][1][2][2][2][2][2][3][3][][][][][]
+
+free(p2)
+[1][1][1][1][][][][][][3][3][][][][][]
+
+p4 = malloc(2)
+[1][1][1][1][4][4][][][][3][3][][][][][]
+
+constraints
+- alignemnt is 16 bytes for whatever that means
+- needs to be responsive, answer requests in order
+- only using heap to store data structure
+
+internal fragmentation
+- give user block of memory, payload is not equal to the size of the block
+
+external fragmentaion
+- when asking for space and there is none tha has enough
+
+where to store metadata
+- cant have memory outside the heap
+- storing data for our heap inside of the heap
+
+explicit free list
+- given a struct, with size(bytes) and magic # (check if a block is allocated right), this is the header
+- then thier is a payload
+- we have an allocated block and a free block, chunks of memory in our heap with meta data attached
+- keep header of free and allocated block the same size
+
+steps
+first call sbrk using sizeof(header)
+- set free frields, next is null and size is whayever
+- if user asks for pointer r, give them extra for the header too
+- the value of the requested dat is the ointer to thier actual data 
+
+keep free list in adress order
+
+- make it as a singly linked list
+
+going over code in MM lab 
+- thier is a heap checker
+- read thorugh helper functions, complex pointer arithmetic and casting can be done easier
+    - when a user calls free, they give a pointer to payload, need to transalte back into the overhead,
+        - the helper funtion get_block is given a payloda and gives u access to the meta data
+- uninit runs one time and sets up heap, call sbreak here and give it a bunch if memey off the bat, set up free head
+- void *mem = csbrk(size); // dont do this 
+- ememry_block_t = *block = (memory_block_t)(mem); casting allows u to do shit 
+- USING SAME STRUCT to calcualte a free and allocate block;
+    - differentiate the two by using the size_t, 
+        - all sizes are divisible by 16, last 4 bits are 0.
+        - use bt masking as an allocator check
+        - use allocate and deallocate and is_alllocate.
+        - if ur allocator is more efficent at  a ertain threshold, u can get extra credit
+
+exam
+topics (on canvas)
+- reos of data, integer, flocting point numbers
+- integer operations
+- bit operations
+- dynamic memeory mamanagement
+- character data
+- pointer and c shit
+
+taking practice exames, we are covering less.
+must be in person for exam
+
+linux basics, how to make directory/copy file 
+for c 
+- type casting, 
