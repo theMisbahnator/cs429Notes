@@ -1,0 +1,56 @@
+pointers
+
+7 things u need to know
+
+Whats its type?
+- (T *x),
+    - x is a variaable that points to type t
+    - every pointer variable has a type
+    - "the opject x has a type pointer to t"
+- void *, represents a generic pointer, we have no information about what its pointing too
+- at machine code, pointers no longer have an associated type
+
+Whats the value?
+- object x does have a value
+    - its the adress of some object of the object type T
+- the special value NULL (0), denotes that the pointer doesnt exist, its initialized
+- an initialized poiter just points to some arbitrary pointer
+
+Referencing a pointer
+- int x, int *xp = &x, xp contains the memory adress of object x as its value
+- the unary value & can be applied to any Lvalues
+
+dereferencing a pointer
+- use a unary *, doesnt mean mulitply
+- after the steps above
+- int y = *xp; will cause the value of y to be identical to the value of x.
+- *xp = 5; this mean the value of x will be 5.
+
+arrays and pointers are closely related
+- an array is a contigous chunk in memory 
+- char s[8] = "hello\n"; s is a char * pointing to 'h'
+
+pointer arithmetic 
+- if u have a pointr p, and an int i, an p + i.
+    - p + i has type *, basically teverses indexes like an array
+    - scales by a factor of the size of type pointer.
+    - p[5] = p + 5. 
+    - if u add to a void pointer, it increments by 1.
+- *s = 'h', s[0] = 'h';
+- *(s+2) = *(s+4) = s[2] = s[4]
+
+casting
+- casting a pointer doesn't change what its pointing too, 
+    - but changes the type your intepreting it as
+- (int *)s + 7 is different from (int *)(s + 7)
+    - different values but same type
+
+- casting as from a char to an int, since thier is a storge difference
+- the char is taken 4 bytes so hell instead of just h
+
+Pointer to a function type?
+- we can have a pointer to a function type
+- the location of a fucntion object is the memory adress where the code starts
+- fp = fcuntion fun, you can do y = fp(params) and its the same as fun(params)
+- 
+
