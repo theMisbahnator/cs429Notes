@@ -1,0 +1,35 @@
+Missed lecture notes for arrays
+
+Structs
+
+syntax and sematics
+- an aggregation of heterogenous things unlike an array
+- compnents have different types possibly 
+- these components are called fields 
+- either accessable by . or -> if a pointer
+
+forms
+- there are tagged and untagged forms
+- struct T {...} x;
+- Tag is T
+- the type of this object is structure T, if it doesnt have a tag, its an anonymous struct
+- tag is between struct and {, having type allows self referential list
+
+allocation
+- alllocates some continous bytes of memory
+- fields in memeory are stores next to each other in memory, laid in order in memory
+- fields will have a contigous chunk based on its type, there may be gaps but data alignment solves that?
+- fields are never reordered, each field is offset from the beggining of the struct
+- the size of the struct is AT LEAST the size of all its field plus possible padding
+
+Union data
+- just like struct data, but its a sandwich
+- not all fields all a the same time
+- the offset of each varaint is 0, becuase they are sitting o top of each other
+- allocate the max field variable is the size of the union
+
+Defintion
+- an aggregation of heterogenous sub objects into a single units
+    - called a variant record
+- for a union to wrk u need to be able to determine its size.
+    - variants must be a fixed length
