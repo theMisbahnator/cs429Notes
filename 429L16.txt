@@ -1,0 +1,55 @@
+skipped two lectures, idk whats going on
+
+great game teaches assembly: human resource machine
+
+absolute gives a constant to go to a location
+indirect: the adress of where to go in memory to get the value.
+sounds like a pointer to me
+
+base + displacement - > x being a constant, (rb) b for base, 
+    - get the contents of rb and gets u the final adress to get the data
+
+indexed
+ - two registers, base register, index register, and a displacement
+    - used for arrays, multidimensional array, array of structs acessing fields
+- index is being scaled by a multiplier by 1
+
+scaled index - > everything in index but with a scale factor, everything applies only to the index
+
+all registers for 64 bit have to be 64 bit registers
+
+Syntax sugar
+index
+    - no displacement, dont write it down
+
+scaled index
+    - no displacement
+    - no base register
+    - no displacement and no base register
+
+Data movement instructions
+- basic mov instructions
+    - MOV [one letter here]
+    - basic instruction moves data from source to destination specifier
+    - s and d cant refer to memory locations
+- if s is immediate, its at most 32 bit wide
+- Movansq 64 bit to resigeter move operations
+
+expanding movs 
+- 0 extend MOVEX or sign extend MOVZ
+- destination has to be a register
+- no movelq, zeros out top half of register
+
+cltq
+- takes in n operands
+- sign extention operator
+
+sp stands for 
+    - stack pointer
+    - rsp used for stack pointers
+    - push and pop, x86 growns downwards from higher to lower adresses
+- open up 8 bytes by decrementing the pointer by 8
+- put into memory whatever the source is
+classic cisc instructions
+- combining memory access and data processing
+
